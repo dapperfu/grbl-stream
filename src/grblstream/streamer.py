@@ -33,7 +33,7 @@ class SerialPort(object):
 
     def write(self, data):
         self._log_write('>>', data)
-        self.serial.write(data)
+        self.serial.write(data.encode())
 
     def readlines(self, timeout=None):
         start_time = time.time()
@@ -58,7 +58,7 @@ class SerialPort(object):
             # read
             # FIXME: char by char (a bit clunky, but easy to write)
             try:
-                received_chr = self.serial.read()
+                received_chr = self.serial.read().decode()
             except serial.serialutil.SerialException:
                 continue # terminal resize interrupts serial read
             self._cur_line += received_chr
@@ -193,7 +193,7 @@ class GCodeStreamer(object):
 
     def _transmit(self, line):
         assert isinstance(line, GCodeStreamer.Line)
-        self.serial.write(str(line)) # Send to GRBL device
+        self.serial.write(str(line).encode()) # Send to GRBL device
 
     def poll_transmission(self):
         """

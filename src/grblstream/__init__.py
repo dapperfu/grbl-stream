@@ -32,14 +32,14 @@ __all__ = [
 ]
 
 # modules
-import arduino_tools
-import config
-import streamer
-import widget
-import window
+from . import arduino_tools
+from . import config
+from . import streamer
+from . import widget
+from . import window
 
 # settingsfile
-from config import Config, DEFAULT_SETTINGS
+from .config import Config, DEFAULT_SETTINGS
 
 # window
-from window import keypress
+from .window import keypress

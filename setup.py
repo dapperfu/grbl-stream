@@ -21,14 +21,13 @@ CLASSIFIERS = [
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 2",
     "Programming Language :: Python :: 3",
     "Topic :: Scientific/Engineering",
 ]
 INSTALL_REQUIRES = [
     'argparse',  # Python command-line parsing library
     'pyserial', # Python Serial Port Extension
-    'six',  # Python 2 and 3 compatibility utilities
+    'six',
     'pygcode>=0.1.2', # Basic g-code parser, interpreter, and encoder library
 ]
 SCRIPTS = [
@@ -77,7 +76,7 @@ if __name__ == "__main__":
         maintainer=find_meta("author"),
         maintainer_email=find_meta("email"),
         keywords=KEYWORDS,
-        long_description=read("README.rst"),
+        long_description=read("README.md"),
         packages=PACKAGES,
         package_dir={"": "src"},
         zip_safe=False,

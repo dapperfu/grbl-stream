@@ -4,7 +4,7 @@ import argparse
 import collections
 
 # local libs
-import arduino_tools
+from . import arduino_tools
 
 # Default content for settings file (encoded to json)
 #   ~/.grbl-stream.json
